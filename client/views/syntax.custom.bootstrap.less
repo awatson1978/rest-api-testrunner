@@ -1,0 +1,71 @@
+//------------------------------------------
+// navbars
+
+.navbar-fixed-bottom{
+  padding-top: 5px;
+  height: 50px;
+}
+
+//------------------------------------------
+// list groups
+
+.list-group-item:hover{
+  background-color: lightgray;
+  cursor: pointer;
+}
+.list-group-item:hover{
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+
+
+
+.editable{
+  margin-bottom: 20px;
+}
+
+
+
+input,
+select,
+textarea {
+  &[disabled],
+  &[readonly],
+  fieldset[disabled] & {
+    cursor: pointer;
+    background-color: white !important;
+    border: 1px solid white !important;
+  }
+}
+// Explicitly reset the colors here
+input[type="radio"],
+input[type="checkbox"] {
+  &[disabled],
+  &[readonly],
+  fieldset[disabled] & {
+    background-color: transparent;
+  }
+}
+
+
+
+
+
+// mobile phone layout
+@media only screen and (max-width: 480px) {
+
+
+}
+
+// portrait orientation
+@media only screen and (max-width: 768px) {
+
+}
+
+// landscape orientation
+@media only screen and (min-width: 768px) {
+
+}

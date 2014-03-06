@@ -1,0 +1,10 @@
+{
+  "packages": {
+    "iron-router": {
+      "git": "https://github.com/EventedMind/iron-router.git"
+    },
+    "font-awesome": {},
+    "bootstrap-3": {},
+    "moment": {}
+  }
+}

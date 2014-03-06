@@ -1,0 +1,1 @@
+SimpleHttpClient = Npm.require('request');

@@ -1,0 +1,39 @@
+<template name="configurationPage">
+  <div id="configurationPage" class="page">
+    <div class="container">
+      <div class="col col-lg-offset-3 col-md-offset-6 col-sm-offset-6 col-lg-6 col-md-6 col-sm-6">
+        <div class="panel panel-warning">
+          <div class="panel-heading">
+            Configuration
+          </div>
+          <div class="padded">
+            <label for="urlAddressBar">Url String</label>
+            <input id="urlAddressBar" type="text" class="fullwidth form-control" placeholder="http://www.somewhere.com" value="{{browser_window_location}}" />
+
+            <label for="usernameInput" class="with-top-padding">Login Name</label>
+            <input id="usernameInput" type="text" class="fullwidth form-control" placeholder="janedoe" value="{{ getLoginValue }}" />
+
+            <label for="passwordInput" class="with-top-padding">Login Password</label>
+            <input id="passwordInput" type="text" class="fullwidth form-control" placeholder="password" value="{{ getPasswordValue }}" />
+
+            <hr>
+            <div class="btn btn-warning timer-button">{{ getTimerButtonText }}</div>
+            {{#if isIntegrationActivated }}
+              <ul class="list-group with-top-padding">
+                <li class="list-group-item 1-minute {{getMinuteStyle1}}">1 minute</li>
+                <li class="list-group-item 5-minute {{getMinuteStyle5}}">5 minute</li>
+                <li class="list-group-item 15-minute {{getMinuteStyle15}}">15 minute</li>
+                <li class="list-group-item 30-minute {{getMinuteStyle30}}">30 minute</li>
+                <li class="list-group-item 60-minute {{getMinuteStyle60}}">60 minute</li>
+                <li class="list-group-item 240-minute {{getMinuteStyle240}}">240 minute</li>
+                <li class="list-group-item 1440-minute {{getMinuteStyle1440}}">1440 minute</li>
+              </ul>
+            <div class="1440-minute fullwidth btn btn-warning">{{ getRemainingTime }} seconds until integration</div>
+            {{/if}}
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

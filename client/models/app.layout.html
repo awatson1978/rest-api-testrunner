@@ -1,0 +1,11 @@
+<head>
+  <title>Meteor TestHarness</title>
+</head>
+
+<template name="appContainerTemplate">
+    {{> navbarHeaderTemplate }}
+    {{ yield}}
+    {{> navbarFooterTemplate }}
+    <div class="hidden resize-trigger">resized: {{resized}}</div>
+</template>
+

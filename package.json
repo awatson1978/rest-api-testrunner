@@ -1,0 +1,5 @@
+{
+    "name": "meteor-safety-harness",
+    "version": "0.0.1",
+    "description": "Meteor testharness for doing acceptance tests...."
+}

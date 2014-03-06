@@ -1,0 +1,19 @@
+{
+    "name": "safety-harness",
+    "version": "0.0.1",
+    "author": "Abigail Watson",
+    "description": "a web enabled acceptance test runner",
+    "keywords": [
+        "testing",
+        "acceptance testing",
+        "unit testing",
+        "integration testing",
+        "safety",
+        "harness",
+        "unit",
+        "integration",
+        "acceptance"
+    ],
+    "license": "MIT"
+}
+
