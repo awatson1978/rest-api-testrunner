@@ -1,4 +1,4 @@
-### Api TestRunner
+## Api TestRunner
 
 **api-testrunner** is a REST API test runner built using Meteor.  The only thing it's designed for is testing REST endpoints.  
 
@@ -14,11 +14,11 @@ git clone https://github.com/awatson1978/rest-api-testrunner.git
 sudo mrt -p 3200
 ```` 
 
-### Configure Testrunner to Point At REST API
+### Configure Testrunner to Point At REST API  
 
 
 
-------------------------
+
 ### License
 
 MIT License.  Use as you will.
