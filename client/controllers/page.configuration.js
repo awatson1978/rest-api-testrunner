@@ -1,8 +1,20 @@
 Session.setDefault('integration_interval', false);
-Session.setDefault('username_value', '---');
-Session.setDefault('password_value', '---');
+Session.setDefault('username_value', false);
+Session.setDefault('password_value', false);
+Session.setDefault('browser_window_location', 'http://localhost:3000');
 
 Template.configurationPage.events({
+  'keyup #urlAddressInput':function(){
+    //Session.set('username_value', $('#usernameInput').val());
+    //try{
+      //if(evt.keyCode == 13) {
+        Session.set('browser_window_location', $('#urlAddressInput').val());
+        Meteor.flush();
+      //}
+    //}catch(err){
+      //console.error(err);
+    //}
+  },
   'keyup #usernameInput':function(){
     Session.set('username_value', $('#usernameInput').val());
   },
@@ -41,6 +53,14 @@ Template.configurationPage.events({
   'click .1440-minute':function(){
     Session.set('integration_interval', 1440);
     setIntegrationInterval(864000);
+  },
+  'click .timer-button': function(){
+    if(Session.get('is_timer_active')){
+      Session.set('integration_interval', 'off');
+      Session.set('is_timer_active', false);
+    }else{
+      Session.set('is_timer_active', true);
+    }
   }
 });
 setIntegrationInterval = function(interval) {
@@ -133,13 +153,3 @@ Template.configurationPage.isIntegrationActivated = function(){
     return false;
   }
 };
-Template.configurationPage.events({
-  'click .timer-button': function(){
-    if(Session.get('is_timer_active')){
-      Session.set('integration_interval', 'off');
-      Session.set('is_timer_active', false);
-    }else{
-      Session.set('is_timer_active', true);
-    }
-  }
-})

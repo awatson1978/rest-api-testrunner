@@ -7,14 +7,14 @@
             Configuration
           </div>
           <div class="padded">
-            <label for="urlAddressBar">Url String</label>
-            <input id="urlAddressBar" type="text" class="fullwidth form-control" placeholder="http://www.somewhere.com" value="{{browser_window_location}}" />
+            <label for="urlAddressInput">Url String</label>
+            <input id="urlAddressInput" type="text" class="fullwidth form-control" placeholder="http://api.somewhere.com:3000" value="{{browser_window_location}}" />
 
             <label for="usernameInput" class="with-top-padding">Login Name</label>
-            <input id="usernameInput" type="text" class="fullwidth form-control" placeholder="janedoe" value="{{ getLoginValue }}" />
+            <input id="usernameInput" type="text" class="fullwidth form-control" placeholder="janedoe" value="{{ getLoginValue }}" readonly />
 
             <label for="passwordInput" class="with-top-padding">Login Password</label>
-            <input id="passwordInput" type="text" class="fullwidth form-control" placeholder="password" value="{{ getPasswordValue }}" />
+            <input id="passwordInput" type="text" class="fullwidth form-control" placeholder="password" value="{{ getPasswordValue }}" readonly />
 
             <hr>
             <div class="btn btn-warning timer-button">{{ getTimerButtonText }}</div>

@@ -13,26 +13,34 @@ Template.navbarHeaderTemplate.getLink = function(){
     }
 };
 
-Template.navbarHeaderTemplate.events({
-  'keyup #urlAddressBar': function(evt,tmpl){
-    try{
-      if(evt.keyCode == 13) {
-        Session.set('browser_window_location', $('#urlAddressBar').val());
-        Meteor.flush();
-      }
-    }catch(err){
-      console.error(err);
-    }
-  }
-});
-Template.navbarHeaderTemplate.browser_window_location = function(){
+//Template.navbarHeaderTemplate.events({
+//  'keyup #urlAddressBar': function(evt,tmpl){
+//    try{
+//      if(evt.keyCode == 13) {
+//        Session.set('browser_window_location', $('#urlAddressBar').val());
+//        Meteor.flush();
+//      }
+//    }catch(err){
+//      console.error(err);
+//    }
+//  }
+//});
+Template.navbarFooterTemplate.getUrl = function(){
   return Session.get('browser_window_location');
 };
 
 Template.navbarFooterTemplate.getPasswordValue = function(){
-  return Session.get('password_value');
+  if(Session.get('password_value')){
+    return ':' + Session.get('password_value');
+  }else{
+    return "";
+  }
 }
 Template.navbarFooterTemplate.getUsernameValue = function(){
-  return Session.get('username_value');
+  if(Session.get('username_value')){
+    return Session.get('username_value') + "@";
+  }else{
+    return "";
+  }
 }
 
