@@ -1,7 +1,7 @@
 Session.setDefault('integration_interval', false);
 Session.setDefault('username_value', false);
 Session.setDefault('password_value', false);
-Session.setDefault('browser_window_location', 'http://localhost:3000');
+Session.setDefault('browser_window_location', 'http://rest-api.meteor.com');
 
 Template.configurationPage.events({
   'keyup #urlAddressInput':function(){

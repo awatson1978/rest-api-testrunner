@@ -13,18 +13,6 @@ Template.navbarHeaderTemplate.getLink = function(){
     }
 };
 
-//Template.navbarHeaderTemplate.events({
-//  'keyup #urlAddressBar': function(evt,tmpl){
-//    try{
-//      if(evt.keyCode == 13) {
-//        Session.set('browser_window_location', $('#urlAddressBar').val());
-//        Meteor.flush();
-//      }
-//    }catch(err){
-//      console.error(err);
-//    }
-//  }
-//});
 Template.navbarFooterTemplate.getUrl = function(){
   return Session.get('browser_window_location');
 };

@@ -18,7 +18,8 @@ describe('Basic API Tests', function(){
     var webpage = null;
 
     it('checking ' + Session.get('browser_window_location') + ' returns 200 OK...', function(done){
-      HTTP.call("GET", Session.get('browser_window_location'), function(error, result){
+      console.log('checking ' + Session.get('browser_window_location') + ' returns 200 OK...');
+      HTTP.call("GET", Session.get('browser_window_location') + '/api/', function(error, result){
         if(result){
           assert.equal(result.statusCode, 200);
         }
@@ -46,6 +47,8 @@ describe('Campaigns API', function(){
     var newRecordId = 0;
 
     it('list', function(done){
+      console.log('GET ' + Session.get('browser_window_location') + '/api/');
+
       HTTP.call("GET", Session.get('browser_window_location') + '/api/', function(error, result){
         if(result){
           assert.equal(result.statusCode, '200');
@@ -61,11 +64,11 @@ describe('Campaigns API', function(){
     });
 
     it('insert', function(done){
-      console.count('testing Campaigns:Insert');
+      console.log('POST ' + Session.get('browser_window_location') + '/api/ + object');
 
       var newObject = {data: {
         "title" : "test name",
-        "text" : "test words"
+        "text" : "test words foo"
       }};
 
       HTTP.call("POST", Session.get('browser_window_location') + '/api/', newObject, function(error, result){
@@ -86,6 +89,8 @@ describe('Campaigns API', function(){
       });
     });
     it('get', function(done){
+      console.log('GET ' + Session.get('browser_window_location') + '/api/1234567890');
+
       HTTP.call("GET", Session.get('browser_window_location') + '/api/' + newRecordId, function(error, result){
         if(result){
           assert.equal(result.statusCode, '200');
@@ -103,7 +108,7 @@ describe('Campaigns API', function(){
       });
     });
     it('update', function(done){
-      console.count('testing Campaigns:Update');
+      console.log('PUT ' + Session.get('browser_window_location') + '/api/1234567890 + object');
 
       var updatedObject = {
         "name" : "updated name"
@@ -122,6 +127,8 @@ describe('Campaigns API', function(){
     });
 
     it('delete', function(done){
+      console.log('DELETE ' + Session.get('browser_window_location') + '/api/1234567890');
+
       HTTP.call("DELETE", Session.get('browser_window_location') + '/api/'  + newRecordId, function(error, result){
         if(result){
           assert.equal(result.statusCode, 200);
