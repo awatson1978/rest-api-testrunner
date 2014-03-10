@@ -16,21 +16,15 @@ describe('Basic API Tests', function(){
     this.timeout(1000);
 
     var webpage = null;
-    it('checking ' + Session.get('browser_window_location') + ' is alive...', function(done){
-      Meteor.call('openWebPage', Session.get('browser_window_location'), function (error, result){
-        if(result){
-          assert.equal(result, "success");
-        }else{
-          assert.equal(false, true);
-        }
-        done();
-      });
-    });
 
     it('checking ' + Session.get('browser_window_location') + ' returns 200 OK...', function(done){
       HTTP.call("GET", Session.get('browser_window_location'), function(error, result){
         if(result){
           assert.equal(result.statusCode, 200);
+        }
+        if(error){
+          console.error(error);
+          assert.equal(error.statusCode, 200);
         }
         done();
       });
@@ -47,7 +41,7 @@ describe('Campaigns API', function(){
   //--------------------------------------------------------------------------
 
   describe('api/', function(){
-    this.timeout(2000);
+    this.timeout(3000);
 
     var newRecordId = 0;
 
@@ -55,10 +49,12 @@ describe('Campaigns API', function(){
       HTTP.call("GET", Session.get('browser_window_location') + '/api/', function(error, result){
         if(result){
           assert.equal(result.statusCode, '200');
-          var parsedContent = JSON.parse(result.content);
-
-          assert.ok(parsedContent);
-          console.log(parsedContent);
+          assert.ok(result.content);
+          console.log(result.content);
+        }
+        if(error){
+          console.error(error);
+          assert.equal(error.statusCode, 200);
         }
         done();
       });
@@ -67,25 +63,24 @@ describe('Campaigns API', function(){
     it('insert', function(done){
       console.count('testing Campaigns:Insert');
 
-      var newObject = {
-        "name" : "test name",
-        "description" : "test description",
-        "client_id" : "987654321",
-        "start_date" : new Date(moment("2014-01-01").unix()),
-        "end_date" : new Date(moment("2014-01-07").unix()),
-        "timestamp" : new Date()
-      }
+      var newObject = {data: {
+        "title" : "test name",
+        "text" : "test words"
+      }};
 
-      HTTP.call("POST", Session.get('browser_window_location') + '/api/', {data: newObject}, function(error, result){
+      HTTP.call("POST", Session.get('browser_window_location') + '/api/', newObject, function(error, result){
         if(result){
-          assert.equal(result.statusCode, '200');
+          assert.equal(result.statusCode, 200);
 
-          var parsedContent = JSON.parse(result.content);
-          console.log(parsedContent);
-          assert.isNotNull(parsedContent);
-          assert.isDefined(parsedContent);
+          console.log(result.content);
+          assert.isNotNull(result.content);
+          assert.isDefined(result.content);
 
-          newRecordId = parsedContent;
+          //newRecordId = parsedContent;
+        }
+        if(error){
+          console.error(error);
+          assert.equal(error.statusCode, 200);
         }
         done();
       });
@@ -95,6 +90,14 @@ describe('Campaigns API', function(){
         if(result){
           assert.equal(result.statusCode, '200');
           assert.ok(result.content);
+
+          console.log(result.content);
+          assert.isNotNull(result.content);
+          assert.isDefined(result.content);
+        }
+        if(error){
+          console.error(error);
+          assert.equal(error.statusCode, 200);
         }
         done();
       });
@@ -122,6 +125,10 @@ describe('Campaigns API', function(){
       HTTP.call("DELETE", Session.get('browser_window_location') + '/api/'  + newRecordId, function(error, result){
         if(result){
           assert.equal(result.statusCode, 200);
+
+          console.log(result.content);
+          assert.isNotNull(result.content);
+          assert.isDefined(result.content);
         }
         if(error){
           console.error(error);
