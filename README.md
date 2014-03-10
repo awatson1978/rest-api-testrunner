@@ -16,7 +16,10 @@ sudo mrt -p 3200
 
 ### Configure Testrunner to Point At REST API  
 
-
+````js
+// /client/controllers/page.configuration.js
+Session.setDefault('browser_window_location', 'http://localhost:3000');
+```` 
 
 
 ### License
