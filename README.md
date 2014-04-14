@@ -1,6 +1,6 @@
 ## Api TestRunner
 
-**api-testrunner** is a REST API test runner built using Meteor.  The only thing it's designed for is testing REST endpoints.  
+**api-testrunner** is a REST API test runner built using Meteor.  The only thing it's designed for is testing REST endpoints.  An online demo is available at http://rest-api-testrunner.meteor.com/  
 
 
 
